@@ -1,6 +1,6 @@
 class Kocktailz::Cocktails
 
-    attr_accessor :strDrink, :idDrink, :strCategory
+    attr_accessor :strDrink, :idDrink, :strCategory, :strAlcoholic, :strGlass, :strInstructions, :strIngredient1, :strIngredient2, :strIngredient3
  
     @@all = []
 
