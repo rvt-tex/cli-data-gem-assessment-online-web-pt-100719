@@ -1,0 +1,4 @@
+class Kocktailz::CLI
+
+
+end 
