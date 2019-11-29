@@ -67,21 +67,20 @@ class Kocktailz::CLI
 
     def goodbye
         puts "Would you like to search for another cocktail? Enter Y or N: "
-        puts ""
         input = gets.strip.downcase
-
         case input
         when "y"
-        start
+            puts "Type the first letter of the cocktail you would like to search:"
+            # clear all array that was there before   
+            Kocktailz::Cocktails.all.clear  
+            list_cocktails 
+            more_info
+            goodbye
         when "n"
-            puts ""
             puts "Thanks for using Kocktailz!!!"
             puts "Tequila may not be the answer, but it's worth a shot."
-            puts ""
         else
-            puts ""
             puts "I don't understand that answer. Type Y or N"
-            puts ""
         end
     end 
 end 
