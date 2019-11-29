@@ -34,6 +34,20 @@ class Kocktailz::CLI
         puts "#{name}, please type the first letter of the cocktail you would like to search:" 
     end
 
+    def list_cocktails   
+        input = gets.chomp.downcase  
+        if "u".match(/u/)|| "x".match(/x/)
+            puts "Not a Valid Option, Try another letter!"
+            #input = gets.chomp.downcase  
+        else
+            input = gets.chomp.downcase  
+        end
+        Kocktailz::API.get_cocktails_db(input)
+        Kocktailz::Cocktails.all.each.with_index do |d, i|
+            puts "#{i + 1}. #{d.strDrink}"
+        end  
+    end 
+
     def more_info
         puts ""
         puts "Enter the number you would like to view more information on?:"
