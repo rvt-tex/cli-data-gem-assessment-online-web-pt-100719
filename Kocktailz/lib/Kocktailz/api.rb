@@ -6,9 +6,9 @@ class Kocktailz::API
 
         def self.get_cocktails_db(query)
            @@cocktail_letter = ('a'..'z')    #.to_a.sample
-
         response = HTTParty.get(ROOT_URL + "f=#{query}")
         #binding.pry
+        #need to put in conditaional to check for empty hash, null returns
         response["drinks"].each do |drinks_hash|
             Kocktailz::Cocktails.new(drinks_hash)
         end 
