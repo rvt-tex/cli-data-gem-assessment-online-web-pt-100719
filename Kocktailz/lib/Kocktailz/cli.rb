@@ -52,7 +52,7 @@ class Kocktailz::CLI
         puts "Enter the number you would like to view more information on?:"
         input = gets.chomp.downcase
         cocktail = Kocktailz::Cocktails.all[input.to_i - 1]
-        Kocktailz::API.get_selected_cocktail(cocktail)
+        Kocktailz::API.get_single_cocktail(cocktail)
 
         puts "strDrink: #{cocktail.strDrink}"
         puts "idDrink: #{cocktail.idDrink}"
