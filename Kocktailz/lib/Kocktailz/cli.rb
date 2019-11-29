@@ -31,7 +31,6 @@ class Kocktailz::CLI
     def greet_user
         puts "whats is your name?"
         name = gets.strip.capitalize
-        puts "Welocme to KOCKTAILZ!!!, #{name}"
         puts "#{name}, please type the first letter of the cocktail you would like to search:" 
     end
 
