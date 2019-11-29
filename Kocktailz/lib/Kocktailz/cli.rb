@@ -1,20 +1,32 @@
 class Kocktailz::CLI
 
 
-    def start
-        puts "Hi! Welcome to the Kocktailz by letter CLI"
-        puts ""
-        greet_user
-
-        input = gets.strip.downcase  
-        Kocktailz::API.get_cocktails_db(input)
-        Kocktailz::Cocktails.all.each.with_index(1) do |d, i|
-            puts "#{i}. #{d.strDrink}"
-        end
-        
-        more_info
-        goodbye
-    end
+    def call 
+    puts "                                            ==         "
+    puts "                                           ==          "
+    puts "                                          ==           "
+    puts "     ---------------------------------------           "
+    puts "       -----------------------------------             "
+    puts "         -------------------------------               "
+    puts "           ----------WELCOME-----------                "
+    puts "             -----------TO-----------                  "
+    puts "               ------KOCKTAILZ-----                    "
+    puts "                 ----------------                      "
+    puts "                   ------------                        "
+    puts "                     --------                          "
+    puts "                      ------                           "
+    puts "                       ====                            "
+    puts "                        ==                             "
+    puts "                        ==                             "
+    puts "                        ==                             "
+    puts "                        ==                             "
+    puts "                        ==                             "
+    puts "               ======================                  "
+    greet_user
+    list_cocktails 
+    more_info
+    goodbye
+    end 
 
     def greet_user
         puts "whats is your name?"
