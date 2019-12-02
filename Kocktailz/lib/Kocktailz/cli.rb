@@ -34,23 +34,36 @@ class Kocktailz::CLI
         puts "#{name}, please type the first letter of the cocktail you would like to search:" 
     end
 
+    def invalidate_input?(letter)
+        #binding.pry
+         letter.match(/\W/) || letter.match(/[xu8]/)
+
+    end 
+
     def list_cocktails   
         input = gets.chomp.downcase  
-        if "u".match(/u/)|| "x".match(/x/)
-            puts "Not a Valid Option, Try another letter!"
-            #input = gets.chomp.downcase  
-        else
-            input = gets.chomp.downcase  
-        end
-        Kocktailz::API.get_cocktails_db(input)
-        Kocktailz::Cocktails.all.each.with_index do |d, i|
-            puts "#{i + 1}. #{d.strDrink}"
-        end  
+    if !invalidate_input?(input)
+            Kocktailz::API.get_cocktails_db(input)
+            Kocktailz::Cocktails.all.each.with_index do |d, i|
+                puts "#{i + 1}. #{d.strDrink}"
+            end 
+                
+    else
+                puts "Not a Valid Option, Try another letter!"
+              # input = gets.chomp.downcase  
+                list_cocktails
     end 
+    end 
+         
+    
 
     def more_info
         puts "Enter the number you would like to view more information on?:"
+        
         input = gets.chomp.downcase
+        #binding.pry
+        if (1..Kocktailz::Cocktails.all.size).include?(input.to_i)
+    
         cocktail = Kocktailz::Cocktails.all[input.to_i - 1]
         Kocktailz::API.get_single_cocktail(cocktail)
 
@@ -63,6 +76,10 @@ class Kocktailz::CLI
         puts "strInstructions: #{cocktail.strInstructions}"
         puts "strGlass: #{cocktail.strGlass}"
         puts "strAlcoholic: #{cocktail.strAlcoholic}"
+        else 
+            puts "sorry not a valid option try a different number"
+            more_info
+        end 
     end 
 
     def goodbye

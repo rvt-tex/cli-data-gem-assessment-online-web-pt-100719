@@ -18,4 +18,4 @@ class Kocktailz::Cocktails
             self.send("#{k}=", v) if self.respond_to?(k)
         end
     end
-end 
+end  
