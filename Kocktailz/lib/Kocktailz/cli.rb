@@ -29,39 +29,37 @@ class Kocktailz::CLI
     end 
 
     def greet_user
+        puts ""
         puts "whats is your name?"
         name = gets.strip.capitalize
+        puts ""
         puts "#{name}, please type the first letter of the cocktail you would like to search:" 
     end
 
     def invalidate_input?(letter)
-        #binding.pry
-         letter.match(/\W/) || letter.match(/[xu8]/)
-
+        letter.match(/\W/) || letter.match(/[xu8]/)
     end 
 
     def list_cocktails   
         input = gets.chomp.downcase  
-    if !invalidate_input?(input)
+        puts ""
+        if !invalidate_input?(input)
             Kocktailz::API.get_cocktails_db(input)
             Kocktailz::Cocktails.all.each.with_index do |d, i|
                 puts "#{i + 1}. #{d.strDrink}"
-            end 
-                
-    else
-                puts "Not a Valid Option, Try another letter!"
-              # input = gets.chomp.downcase  
-                list_cocktails
-    end 
-    end 
-         
+            end         
+        else
+            puts "Sorry that is not a Valid Option, please try another letter!"
+            list_cocktails
+        end 
+    end     
     
 
     def more_info
+        puts ""
         puts "Enter the number you would like to view more information on?:"
-        
-        input = gets.chomp.downcase
-        #binding.pry
+        puts ""
+        input = gets.chomp
         if (1..Kocktailz::Cocktails.all.size).include?(input.to_i)
     
         cocktail = Kocktailz::Cocktails.all[input.to_i - 1]
@@ -77,18 +75,18 @@ class Kocktailz::CLI
         puts "strGlass: #{cocktail.strGlass}"
         puts "strAlcoholic: #{cocktail.strAlcoholic}"
         else 
-            puts "sorry not a valid option try a different number"
+            puts "Sorry that is not a valid option, please try a different number"
             more_info
         end 
     end 
 
     def goodbye
-        puts "Would you like to search for another cocktail? Enter Y or N: "
+        puts ""
+        puts "Would you like to search for another cocktail? Enter Y or N or EXIT: "
         input = gets.strip.downcase
         case input
         when "y"
-            puts "Type the first letter of the cocktail you would like to search:"
-            # clear all array that was there before   
+            puts "Type the first letter of the cocktail you would like to search:"  
             Kocktailz::Cocktails.all.clear  
             list_cocktails 
             more_info
@@ -96,8 +94,11 @@ class Kocktailz::CLI
         when "n"
             puts "Thanks for using Kocktailz!!!"
             puts "Tequila may not be the answer, but it's worth a shot."
+        when "exit"
+            puts "Thanks for using Kocktailz!!!"
+            puts "Tequila may not be the answer, but it's worth a shot."
         else
-            puts "I don't understand that answer. Type Y or N"
+            puts "I don't understand that answer. Enter Y or N or EXIT"
         end
     end 
 end 
