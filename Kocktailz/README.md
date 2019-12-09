@@ -5,28 +5,22 @@ The program will be utilizing “The Cocktail DB”, which is and api (https://w
 
 Whenever the user select the more info option the following will be displayed;
 1. The drink name 
-2. drink id
-3. 3 major ingredients
-4. instructions on making the cocktail
-5. type of glass to serve it in
-6. the category in which it falls 
-6. if the cocktail is alcoholic.
+2. Ingredients
+3. Instructions on making the cocktail
+4. Type of glass to serve it in
+5. The category in which it falls 
+6. If the cocktail is alcoholic.
 
 
 Installation
 
-Add this line to your application's Gemfile:
-gem 'Kocktailz'
-
-And then execute:
-    $ bundle
-
-Or install it yourself as:
-    $ gem install Kocktailz
+To use this application go to https://github.com/rvt-tex/cli-data-gem-assessment-online-web-pt-100719 , where you would fork, clone and download to your computer.
+Then ensure you cd in the correct directory of Kocktailz
+Afterwhich you will run the bin file from your terminal ./bin/kocktailz to start the application
 
 Usage
 
-This gem is designed to help users select different types of cocktails at any social event or help them to make a exotic cocktail of their choice.
+This application is designed to help users select different types of cocktails at any social event or help them to make a exotic cocktail of their choice.
 
 Development
 
@@ -36,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/rvt-tex/Kocktailz. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/rvt-tex/cli-data-gem-assessment-online-web-pt-100719. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 License
 
